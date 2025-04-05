@@ -8,13 +8,14 @@ import { Entypo } from '@expo/vector-icons';
 
 export type TrackListItemProps = {
   track: Track;
+  onTrackSelect: (track: Track) => void;
 };
 
-export const TrackListItem = ({ track }: TrackListItemProps) => {
+export const TrackListItem = ({ track, onTrackSelect: handleTrackSelect }: TrackListItemProps) => {
   const isActiveTrack = useActiveTrack()?.url === track.url;
 
   return (
-    <TouchableHighlight>
+    <TouchableHighlight onPress={() => handleTrackSelect(track)}>
       <View style={styles.trackItemContainer}>
         <View>
           <FastImage
