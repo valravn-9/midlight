@@ -1,9 +1,10 @@
 import { FlatList, FlatListProps, View } from 'react-native';
 import { TrackListItem } from './TrackListItem';
 import { utilsStyles } from '@/styles';
+import { Track } from 'react-native-track-player';
 
-export type TracksListProps = Partial<FlatListProps<unknown>> & {
-  tracks: any[];
+export type TracksListProps = Partial<FlatListProps<Track>> & {
+  tracks: Track[];
 };
 
 const ItemDivider = () => (
@@ -17,14 +18,7 @@ export const TracksList = ({ tracks, ...flatlistProps }: TracksListProps) => {
       contentContainerStyle={{ paddingTop: 10, paddingBottom: 128 }}
       ListFooterComponent={ItemDivider}
       ItemSeparatorComponent={ItemDivider}
-      renderItem={({ item: track }) => (
-        <TrackListItem
-          track={{
-            ...track,
-            image: track.artwork,
-          }}
-        />
-      )}
+      renderItem={({ item: track }) => <TrackListItem track={track} />}
       {...flatlistProps}
     />
   );
