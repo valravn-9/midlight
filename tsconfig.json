@@ -6,17 +6,31 @@
     "module": "commonjs",
     "moduleResolution": "node",
     "jsx": "react-native",
-    "lib": ["esnext", "DOM"],
+    "lib": [
+      "esnext",
+      "DOM"
+    ],
     "noEmit": true,
     "allowSyntheticDefaultImports": true,
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"],
-      "@assets/*": ["./assets/*"]
+      "@/*": [
+        "./src/*"
+      ],
+      "@assets/*": [
+        "./assets/*"
+      ]
     }
   },
-  "include": ["**/*.ts", "**/*.tsx", ".expo/types/**/*.ts", "expo-env.d.ts"],
-  "exclude": ["node_modules"]
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    ".expo/types/**/*.ts",
+    "expo-env.d.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
