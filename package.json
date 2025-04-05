@@ -40,7 +40,8 @@
     "doctor": {
       "reactNativeDirectoryCheck": {
         "exclude": [
-          "react-native-fast-image"
+          "react-native-fast-image",
+          "react-native-track-player"
         ]
       }
     }
