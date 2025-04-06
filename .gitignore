@@ -41,3 +41,6 @@ yarn-error.*
 # build
 ios/
 android/
+
+# personal
+TODO.md
