@@ -30,9 +30,11 @@ export const useFavorites = () => {
   };
 };
 
-export const useArtists = () =>
-  useLibraryStore((state) => {
-    return state.tracks.reduce((acc, track) => {
+export const useArtists = () => {
+  const tracks = useLibraryStore((state) => state.tracks);
+
+  return useMemo(() => {
+    return tracks.reduce((acc, track) => {
       const existingArtist = acc.find((artist) => artist.name === track.artist);
 
       if (existingArtist) {
@@ -43,4 +45,5 @@ export const useArtists = () =>
 
       return acc;
     }, [] as Artist[]);
-  });
+  }, [tracks]);
+};
