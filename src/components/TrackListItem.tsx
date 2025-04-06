@@ -1,8 +1,7 @@
 import { unknownTrackImageUri } from '@/constants/images';
 import { colors, fontSize } from '@/constants/tokens';
 import { defaultStyles } from '@/styles';
-import { StyleSheet, Text, TouchableHighlight, View } from 'react-native';
-import FastImage from 'react-native-fast-image';
+import { Image, StyleSheet, Text, TouchableHighlight, View } from 'react-native';
 import { Track, useActiveTrack, useIsPlaying } from 'react-native-track-player';
 import { Entypo, Ionicons } from '@expo/vector-icons';
 import LoaderKit from 'react-native-loader-kit';
@@ -23,11 +22,8 @@ export const TrackListItem = ({ track, onTrackSelect: handleTrackSelect }: Track
     <TouchableHighlight onPress={() => handleTrackSelect(track)}>
       <View style={styles.trackItemContainer}>
         <View>
-          <FastImage
-            source={{
-              uri: track.artwork ?? unknownTrackImageUri,
-              priority: FastImage.priority.normal,
-            }}
+          <Image
+            source={{ uri: track.artwork ?? unknownTrackImageUri }}
             style={{
               ...styles.trackArtworkImage,
               opacity: isActiveTrack ? 0.6 : 1,

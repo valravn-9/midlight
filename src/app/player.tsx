@@ -2,8 +2,7 @@ import { MovingText } from '@/components/MovingText';
 import { unknownTrackImageUri } from '@/constants/images';
 import { colors, fontSize, screenPadding } from '@/constants/tokens';
 import { defaultStyles, utilsStyles } from '@/styles';
-import { ActivityIndicator, StyleSheet, View, Text } from 'react-native';
-import FastImage from 'react-native-fast-image';
+import { ActivityIndicator, StyleSheet, View, Text, Image } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useActiveTrack } from 'react-native-track-player';
 import { FontAwesome } from '@expo/vector-icons';
@@ -45,11 +44,8 @@ const PlayerScreen = () => {
 
         <View style={{ flex: 1, marginTop: top + 70, marginBottom: bottom }}>
           <View style={styles.artworkImageContainer}>
-            <FastImage
-              source={{
-                uri: activeTrack.artwork ?? unknownTrackImageUri,
-                priority: FastImage.priority.high,
-              }}
+            <Image
+              source={{ uri: activeTrack.artwork ?? unknownTrackImageUri }}
               resizeMode="cover"
               style={styles.artworkImage}
             />

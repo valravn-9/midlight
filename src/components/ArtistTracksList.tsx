@@ -4,8 +4,7 @@ import { useNavigationSearch } from '@/hooks/useNavigationSearch';
 import { useMemo } from 'react';
 import { TracksList } from './TracksList';
 import { generateTracksListId } from '@/helpers/miscellaneous';
-import { StyleSheet, View, Text } from 'react-native';
-import FastImage from 'react-native-fast-image';
+import { StyleSheet, View, Text, Image } from 'react-native';
 import { unknownArtistImageUri } from '@/constants/images';
 import { defaultStyles } from '@/styles';
 import { fontSize } from '@/constants/tokens';
@@ -32,13 +31,7 @@ export const ArtistTracksList = ({ artist }: { artist: Artist }) => {
       ListHeaderComponent={
         <View>
           <View style={styles.artistImageContainer}>
-            <FastImage
-              source={{
-                uri: unknownArtistImageUri,
-                priority: FastImage.priority.high,
-              }}
-              style={styles.artistImage}
-            />
+            <Image source={{ uri: unknownArtistImageUri }} style={styles.artistImage} />
           </View>
           <Text numberOfLines={1} style={styles.artistNameText}>
             {artist.name}

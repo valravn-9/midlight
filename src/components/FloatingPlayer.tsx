@@ -1,7 +1,6 @@
 import { unknownTrackImageUri } from '@/constants/images';
 import { defaultStyles } from '@/styles';
-import { TouchableOpacity, StyleSheet, View, ViewProps } from 'react-native';
-import FastImage from 'react-native-fast-image';
+import { TouchableOpacity, StyleSheet, View, ViewProps, Image } from 'react-native';
 import { useActiveTrack } from 'react-native-track-player';
 import { PlayPauseButton, SkipToNextButton } from './PlayerControls';
 import { useLastActiveTrack } from '@/hooks/useLastActiveTrack';
@@ -25,10 +24,8 @@ export const FloatingPlayer = ({ style }: ViewProps) => {
   return (
     <TouchableOpacity onPress={handlePress} activeOpacity={0.9} style={[styles.container, style]}>
       <>
-        <FastImage
-          source={{
-            uri: displayedTrack.artwork ?? unknownTrackImageUri,
-          }}
+        <Image
+          source={{ uri: displayedTrack.artwork ?? unknownTrackImageUri }}
           style={styles.trackArtworkImage}
         />
         <View style={styles.trackTitleContainer}>

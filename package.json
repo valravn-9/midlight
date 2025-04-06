@@ -25,7 +25,6 @@
     "react": "18.3.1",
     "react-native": "0.76.9",
     "react-native-awesome-slider": "^2.9.0",
-    "react-native-fast-image": "^8.6.3",
     "react-native-gesture-handler": "~2.20.2",
     "react-native-image-colors": "^2.4.0",
     "react-native-loader-kit": "^2.0.8",
@@ -52,7 +51,6 @@
     "doctor": {
       "reactNativeDirectoryCheck": {
         "exclude": [
-          "react-native-fast-image",
           "react-native-track-player",
           "react-native-loader-kit"
         ]

@@ -5,8 +5,7 @@ import { Playlist } from '@/helpers/types';
 import { useNavigationSearch } from '@/hooks/useNavigationSearch';
 import { utilsStyles } from '@/styles';
 import { useMemo } from 'react';
-import { FlatList, FlatListProps, Text, View } from 'react-native';
-import FastImage from 'react-native-fast-image';
+import { FlatList, FlatListProps, Image, Text, View } from 'react-native';
 
 type PlaylistsListProps = {
   playlists: Playlist[];
@@ -41,10 +40,7 @@ export const PlaylistsList = ({
         <View>
           <Text style={utilsStyles.emptyContentText}>No playlist found</Text>
 
-          <FastImage
-            source={{ uri: unknownTrackImageUri, priority: FastImage.priority.normal }}
-            style={utilsStyles.emptyContentImage}
-          />
+          <Image source={{ uri: unknownTrackImageUri }} style={utilsStyles.emptyContentImage} />
         </View>
       }
       data={filteredPlaylist}

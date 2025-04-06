@@ -5,8 +5,7 @@ import { Playlist } from '@/helpers/types';
 import { useNavigationSearch } from '@/hooks/useNavigationSearch';
 import { defaultStyles } from '@/styles';
 import { useMemo } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import FastImage from 'react-native-fast-image';
+import { Image, StyleSheet, Text, View } from 'react-native';
 import { QueueControls } from './QueueControls';
 import { TracksList } from './TracksList';
 
@@ -31,13 +30,7 @@ export const PlaylistTracksList = ({ playlist }: { playlist: Playlist }) => {
       ListHeaderComponent={
         <View>
           <View style={styles.artworkImageContainer}>
-            <FastImage
-              source={{
-                uri: playlist.artworkPreview,
-                priority: FastImage.priority.high,
-              }}
-              style={styles.artworkImage}
-            />
+            <Image source={{ uri: playlist.artworkPreview }} style={styles.artworkImage} />
           </View>
 
           <Text numberOfLines={1} style={styles.playlistNameText}>
