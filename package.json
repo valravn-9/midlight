@@ -9,7 +9,7 @@
     "ios": "expo run:ios",
     "lint": "eslint .",
     "rebuild": "rm -rf ios android && expo prebuild",
-    "web": "expo start --web"
+    "xcode": "open ios/midlight.xcworkspace"
   },
   "dependencies": {
     "@react-native-menu/menu": "^1.2.3",
@@ -20,6 +20,7 @@
     "expo-linear-gradient": "~14.0.2",
     "expo-linking": "~7.0.5",
     "expo-router": "~4.0.20",
+    "expo-splash-screen": "~0.29.22",
     "expo-status-bar": "~2.0.1",
     "react": "18.3.1",
     "react-native": "0.76.9",
