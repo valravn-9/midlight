@@ -5,9 +5,11 @@
   "scripts": {
     "start": "expo start",
     "android": "expo run:android",
+    "doctor": "npx expo-doctor",
     "ios": "expo run:ios",
-    "web": "expo start --web",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "rebuild": "rm -rf ios android && expo prebuild",
+    "web": "expo start --web"
   },
   "dependencies": {
     "expo": "~52.0.43",
