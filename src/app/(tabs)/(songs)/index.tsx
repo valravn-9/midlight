@@ -6,6 +6,7 @@ import { ScrollView, View } from 'react-native';
 import { useMemo } from 'react';
 import { trackTitleFilter } from '@/helpers/filter';
 import { useTracks } from '@/store/library';
+import { generateTracksListId } from '@/helpers/miscellaneous';
 
 const SongsScreen = () => {
   const search = useNavigationSearch({
@@ -28,7 +29,11 @@ const SongsScreen = () => {
         contentInsetAdjustmentBehavior="automatic"
         style={{ paddingHorizontal: screenPadding.horizontal }}
       >
-        <TracksList tracks={filteredTracks} scrollEnabled={false} />
+        <TracksList
+          id={generateTracksListId('songs', search)}
+          tracks={filteredTracks}
+          scrollEnabled={false}
+        />
       </ScrollView>
     </View>
   );
