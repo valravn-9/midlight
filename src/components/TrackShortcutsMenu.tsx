@@ -1,3 +1,4 @@
+import { colors } from '@/constants/tokens';
 import { useFavorites } from '@/store/library';
 import { useQueue } from '@/store/queue';
 import { MenuView } from '@react-native-menu/menu';
@@ -14,7 +15,6 @@ export const TrackShortcutsMenu = ({ track, children }: TrackShortcutsMenuProps)
   const isFavorite = track.rating === 1;
 
   const { toggleTrackFavorite } = useFavorites();
-
   const { activeQueueId } = useQueue();
 
   const handlePressAction = (id: string) => {
@@ -23,7 +23,7 @@ export const TrackShortcutsMenu = ({ track, children }: TrackShortcutsMenuProps)
         toggleTrackFavorite(track);
 
         if (activeQueueId?.startsWith('favorites')) {
-          await TrackPlayer.add([track]);
+          await TrackPlayer.add(track);
         }
       })
       .with('remove-from-favorites', async () => {
@@ -38,15 +38,10 @@ export const TrackShortcutsMenu = ({ track, children }: TrackShortcutsMenuProps)
         }
       })
       .with('add-to-playlist', () => {
-        router.push({
-          // @ts-expect-error it works
-          pathname: '(modals)/addToPlaylist',
-          params: { trackUrl: track.url },
-        });
+        // @ts-expect-error it should work
+        router.push({ pathname: '(modals)/addToPlaylist', params: { trackUrl: track.url } });
       })
-      .otherwise(() => {
-        console.warn('Unknown action:', id);
-      });
+      .otherwise(() => console.warn(`Unknown menu action ${id}`));
   };
 
   return (
@@ -56,9 +51,10 @@ export const TrackShortcutsMenu = ({ track, children }: TrackShortcutsMenuProps)
         {
           id: isFavorite ? 'remove-from-favorites' : 'add-to-favorites',
           title: isFavorite ? 'Remove from favorites' : 'Add to favorites',
-          image: isFavorite ? 'star.fill' : 'star',
+          image: isFavorite ? 'heart.fill' : 'heart',
+          imageColor: colors.icon,
         },
-        { id: 'add-to-playlist', title: 'Add to playlist', image: 'plus' },
+        { id: 'add-to-playlist', title: 'Add to playlist', image: 'plus', imageColor: colors.icon },
       ]}
     >
       {children}
