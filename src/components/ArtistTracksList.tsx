@@ -49,7 +49,7 @@ export const ArtistTracksList = ({ artist }: { artist: Artist }) => {
           )}
         </View>
       }
-      tracks={artist.tracks}
+      tracks={filteredArtistTracks}
     />
   );
 };
