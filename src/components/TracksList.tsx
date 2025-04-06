@@ -6,6 +6,7 @@ import FastImage from 'react-native-fast-image';
 import { unknownTrackImageUri } from '@/constants/images';
 import { useQueue } from '@/store/queue';
 import { useRef } from 'react';
+import { QueueControls } from './QueueControls';
 
 export type TracksListProps = Partial<FlatListProps<Track>> & {
   id: string;
@@ -57,6 +58,7 @@ export const TracksList = ({ id, tracks, ...flatlistProps }: TracksListProps) =>
     <FlatList
       data={tracks}
       contentContainerStyle={{ paddingTop: 10, paddingBottom: 128 }}
+      ListHeaderComponent={<QueueControls tracks={tracks} style={{ paddingBottom: 20 }} />}
       ListFooterComponent={ItemDivider}
       ItemSeparatorComponent={ItemDivider}
       ListEmptyComponent={
